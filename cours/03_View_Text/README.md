@@ -156,3 +156,53 @@
     ![alt text](image-1.png)
 
 ### RQ : [docs_Text](https://reactnative.dev/docs/text)
+
+## 3. **`Dimensions`**
+
+-   **Description:**
+
+    > En React Native, le module `Dimensions` permet d'obtenir les dimensions de l'écran de l'appareil, ce qui est souvent utile pour créer des mises en page réactives qui s'adaptent à différentes tailles d'écran.
+
+-   **Utilisation:**
+
+    ```javascript
+    import { Dimensions } from "react-native";
+    const { width, height } = Dimensions.get("window"); // ou 'screen'
+    ```
+
+    -   `window` : Représente les dimensions de la zone visible de l'application, excluant les barres de navigation et les barres d'état.
+    -   `screen` : Représente les dimensions de l'écran entier, incluant les barres de navigation et les barres d'état.
+
+-   **Exemple:**
+
+    Voici un exemple complet qui montre comment utiliser le module `Dimensions` pour créer une vue qui s'adapte aux dimensions de l'écran :
+
+    ```javascript
+    import React from "react";
+    import { View, Text, StyleSheet, Dimensions } from "react-native";
+
+    const { width, height } = Dimensions.get("window");
+
+    const App = () => {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.text}>Largeur de l'écran: {width}</Text>
+                <Text style={styles.text}>Hauteur de l'écran: {height}</Text>
+            </View>
+        );
+    };
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+        },
+        text: {
+            fontSize: 18,
+            margin: 10,
+        },
+    });
+
+    export default App;
+    ```
