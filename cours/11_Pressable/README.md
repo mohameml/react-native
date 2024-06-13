@@ -34,48 +34,60 @@
     -   `onLongPress`: Callback exécuté lorsqu'une longue pression est détectée.
     -   `style`: Permet de définir les styles en fonction de l'état d'interaction.
 
+    ![alt text](image.png)
+
 -   **Exemple:**
 
     ```javascript
-    import React from "react";
-    import { Pressable, StyleSheet, Text, View } from "react-native";
+    import { StyleSheet, Text, View, FlatList, Pressable } from "react-native";
 
-    const App = () => {
+    export default function Products({ prod }) {
+        function renderItem({ item }) {
+            return (
+                <Pressable
+                    style={({ pressed }) => {
+                        return [
+                            {
+                                backgroundColor: pressed ? "yellow" : "white",
+                            },
+                        ];
+                    }}
+                    onPress={() => {
+                        console.log("Press without feed back");
+                    }}
+                    onLongPress={() => {
+                        console.log("Long Press");
+                    }}
+                    onPressIn={() => console.log("Debut Press")}
+                    onPressOut={() => console.log("Press Out")}
+                >
+                    <View style={styles.prod}>
+                        <Text style={{ color: "white" }}>{item.name}</Text>
+                    </View>
+                </Pressable>
+            );
+        }
         return (
             <View style={styles.container}>
-                <Pressable
-                    onPress={() => alert("Pressed!")}
-                    style={({ pressed }) => [
-                        {
-                            backgroundColor: pressed
-                                ? "rgb(210, 230, 255)"
-                                : "white",
-                        },
-                        styles.button,
-                    ]}
-                >
-                    <Text style={styles.text}>Press Me</Text>
-                </Pressable>
+                <FlatList
+                    data={prod}
+                    renderItem={renderItem}
+                    showsVerticalScrollIndicator={false}
+                />
             </View>
         );
-    };
+    }
 
     const styles = StyleSheet.create({
         container: {
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
+            width: "100%",
         },
-        button: {
-            padding: 10,
-            borderRadius: 5,
-            borderWidth: 1,
-            borderColor: "black",
-        },
-        text: {
-            fontSize: 16,
+        prod: {
+            padding: 20,
+            marginBottom: 30,
+            backgroundColor: "#ff7f50",
+            borderRadius: 20,
+            flexGrow: 1,
         },
     });
-
-    export default App;
     ```
