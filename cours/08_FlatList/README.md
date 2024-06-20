@@ -25,13 +25,18 @@
     -   **data**: (array) La source de données pour la liste.
     -   **renderItem**: (function) Fonction qui rend chaque élément de la liste.
     -   **keyExtractor**: (function) Fonction qui retourne une clé unique pour chaque élément.
+
     -   **ListHeaderComponent**: (component) Composant à afficher en tant qu'en-tête de la liste.
     -   **ListFooterComponent**: (component) Composant à afficher en tant que pied de la liste.
     -   **ItemSeparatorComponent**: (component) Composant à afficher entre les éléments.
+
     -   **onEndReached**: (function) Fonction appelée lorsque la fin de la liste est atteinte.
     -   **refreshing**: (boolean) Si true, montre un indicateur de rafraîchissement.
     -   **onRefresh**: (function) Fonction appelée lors du tirage vers le bas pour rafraîchir.
-    -   La propriété **showsVerticalScrollIndicator** contrôle l'affichage de l'indicateur de défilement vertical
+
+    -   **showsVerticalScrollIndicator:** contrôle l'affichage de l'indicateur de défilement vertical
+    -   **horizontal:** (boolean) permet de rendre la liste défilable horizontalement plutôt que verticalement
+    -   **inverted:** (boolean) est utilisée pour inverser l'ordre des éléments dans la liste.
 
 -   **Exemple:**
 

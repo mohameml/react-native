@@ -31,6 +31,8 @@
     -   **style**: (object) Styles personnalisés pour le champ de saisie.
     -   **multiline**: (boolean) Si true, permet plusieurs lignes de texte.
     -   **numberOfLines**: (number) Nombre de lignes visibles lorsque `multiline` est true.
+    -   **maxLength:** limite le nombre de caractères qu'un utilisateur peut entrer dans le champ de texte
+    -   **editable:** contrôle si le champ de texte peut être modifié par l'utilisateur.
 
 -   **Exemple:**
 
